@@ -1,19 +1,19 @@
 import React from 'react'
 
-function logged(Comp) {
-    class HoCComp extends React.Component{
-        componentDidMount(){
+function logged(Comp, props) {
+    class HoCComp extends React.Component {
+        componentDidMount() {
             console.log('HOC - mounted')
         }
 
-        render(){
-            return(
-                <Comp {...this.props} />
+        render() {
+            return (
+                <Comp {...props} />
             )
         }
     }
 
-    return HoCComp
+    return <HoCComp />
 }
 
 export default logged
