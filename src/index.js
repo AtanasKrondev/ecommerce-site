@@ -1,7 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import ProductCard from './ProductList';
-// import data from './data'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import './index.css'
+import ProductList from './product-list'
+import data from './data'
 
-ReactDOM.render(<ProductCard counter={undefined} />, document.getElementById('root'));
+ReactDOM.render(<ProductList products={data} />, document.getElementById('root'))
