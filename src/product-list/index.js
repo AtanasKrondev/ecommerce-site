@@ -1,29 +1,9 @@
 import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
-// import styled, { css } from 'styled-components'
-
+import styles from './styles.module.css'
 import ProductCard from '../product-card'
 import Header from '../header'
 import logged from '../logged'
-import styles from './styles.module.css'
-
-// const Wrapper = styled.div`
-//   text-align: center;
-//   background-color: #282c34;
-//   min-height: 100vh;
-//   display: flex;
-//   flex-direction: row;
-//   flex-wrap: wrap;
-//   justify-content: center;
-//   align-items: flex-start;
-//   font-size: calc(10px + 2vmin);
-//   color: white;
-//   padding-top: 40px;
-
-//   ${props => props.red && css`
-//     background: red;
-//   `}
-// `
+import data from '../data'
 
 const renderCards = (products) => {
   return products.map((product) => {
@@ -67,19 +47,11 @@ class ProductList extends React.Component {
         <div>{this.state.ownerName}</div>
         <button onClick={this.handleClick}>Toggle Red Theme</button>
         <div className={themeClass}>
-          {renderCards(this.props.products)}
+          {renderCards(data)}
         </div>
       </Fragment >
     )
   }
-}
-
-ProductList.defaultProps = {
-  products: []
-}
-
-ProductList.propTypes = {
-  products: PropTypes.array.isRequired
 }
 
 export default ProductList

@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import ProductPrice from '../product-price'
 import styles from './styles.module.css'
+import { Link } from 'react-router-dom'
 
 const ProductImage = ({ image, title }) => {
   return (
@@ -35,10 +36,12 @@ class ProductCard extends Component {
 
 
   render() {
-    const { image, title, brand, price } = this.props
+    const { image, title, brand, price, id } = this.props
     return (
       <div className={styles.container} onMouseEnter={this.handleMouseOver} onMouseLeave={this.handleMouseOut}>
-        <ProductImage image={image} title={title} />
+        <Link to={`/product/${id}`}>
+          <ProductImage image={image} title={title} />
+        </Link>
         <div>
           <span className={styles["product-brand"]}>{brand}</span>
           <span className={styles["product-title"]}>{title}</span>
@@ -61,11 +64,11 @@ ProductCard.defaultProps = {
   price: 0
 }
 
-ProductCard.propTypes = {
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  brand: PropTypes.string,
-  price: PropTypes.number.isRequired
-}
+// ProductCard.propTypes = {
+//   image: PropTypes.string.isRequired,
+//   title: PropTypes.string.isRequired,
+//   brand: PropTypes.string,
+//   price: PropTypes.number.isRequired
+// }
 
 export default ProductCard
