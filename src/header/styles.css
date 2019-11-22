@@ -4,12 +4,6 @@
   color: white;
 }
 
-.header-container span {
-  display: inline-block;
-  line-height: 70px;
-  margin-left: 20px;
-}
-
 .header-container input {
   margin-right: 20px;
   float: right;
@@ -20,8 +14,9 @@
   padding: 0 5px;
 }
 
-.checkout-link {
+.header-link {
   color: white;
-  float: right;
+  float: left;
+  padding: 0 5px;
   line-height: 60px;
 }

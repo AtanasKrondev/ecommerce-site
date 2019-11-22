@@ -17,8 +17,8 @@ class Header extends Component {
     const { searchValue } = this.state
     return (
       <div className="header-container">
-        <Link to="/">SoftUni React.js course</Link>
-        <Link to="/checkout" className="checkout-link">Checkout</Link>
+        <Link to="/" className="header-link">SoftUni React.js course</Link>
+        <Link to="/checkout" className="header-link">Checkout</Link>
         <input value={searchValue} onChange={this.handleChange} placeholder="Search..." />
       </div>
     )
