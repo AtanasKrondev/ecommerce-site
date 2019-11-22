@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import './styles.css'
 
 class Header extends Component {
@@ -16,8 +17,8 @@ class Header extends Component {
     const { searchValue } = this.state
     return (
       <div className="header-container">
-        <span>SoftUni React.js course</span>
-        
+        <Link to="/">SoftUni React.js course</Link>
+        <Link to="/checkout" className="checkout-link">Checkout</Link>
         <input value={searchValue} onChange={this.handleChange} placeholder="Search..." />
       </div>
     )
