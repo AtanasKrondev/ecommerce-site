@@ -27,23 +27,24 @@ class ProductList extends React.Component {
     })
   }
 
-  componentDidMount() {
-    fetch('https://api.github.com/users/AtanasKrondev')
-      .then((response) => response.json())
-      .then((json) => {
-        this.setState({
-          ownerName: json.name
-        })
-        console.log(json)
-      })
-      .catch((myErr) => console.error(myErr))
-  }
+  // componentDidMount() {
+  //   fetch('https://api.github.com/users/AtanasKrondev')
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       this.setState({
+  //         ownerName: json.name
+  //       })
+  //       console.log(json)
+  //     })
+  //     .catch((myErr) => console.error(myErr))
+  // }
 
   render() {
+    console.log(this.props)
     const themeClass = this.state.isRed ? styles.redContainer : styles.container;
     return (
       <Fragment>
-        <Header />
+        <Header history={this.props.history} state={this.props.location.state} />
         <div>{this.state.ownerName}</div>
         <button onClick={this.handleClick}>Toggle Red Theme</button>
         <div className={themeClass}>

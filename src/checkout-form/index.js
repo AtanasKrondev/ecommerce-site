@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
+import UsernameInput from './username-input'
 
 class CheckoutForm extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            username: '',
-            address: '',
+            username: props.state.username,
+            address: props.state.address,
             city: '',
             iban: '',
             gender: '',
@@ -67,7 +68,24 @@ class CheckoutForm extends Component {
             this.setState({
                 error: null
             })
+
+            // fetch({
+            //     type: "POST",
+            //     url: "api/save/checkout",
+            //     body: { username, address, city, iban, gender, terms }
+            // }).then((response) => response.json())
+            //     .then(json => console.log(json))
+            //     .catch(error => {
+            //         this.setState({
+            //             error
+            //         })
+            //     })
+
             console.log(this.state)
+
+            this.props.history.push('/', {
+                username, address, city, iban, gender, terms
+            })
         }
     }
 
@@ -75,10 +93,7 @@ class CheckoutForm extends Component {
         const { username, address, city, iban, error, terms } = this.state;
         return (
             <form onSubmit={this.handleSubmit}>
-                <div>
-                    <label htmlFor="username">Username: </label>
-                    <input type="text" id="username" onBlur={this.handleOnFocusOut} onChange={this.changeUsername} value={username} />
-                </div>
+                <UsernameInput username={username} changeUsername={this.changeUsername} />
                 <div>
                     <label htmlFor="address">Address: </label>
                     <input type="text" id="address" onChange={this.changeAddress} value={address} />
